@@ -59,17 +59,56 @@ console.log(secondLargestNumber([8, 3, 5, 1, 9, 10]));
 console.log("Does It Have A Vowel Kata");
 
 let vowels = ["a", "e", "i", "o", "u"];
-let index = 0;
-function containsVowel(wordString, vowels) {
-  return vowels;
+let count = 0;
+function containsVowel(word) {
+  while (count < word[count].length) {
+    if (word[count] === vowels[count]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  count++;
 }
-containsVowel("alpha");
-containsVowel("hmph");
+
+console.log(containsVowel("alpha"));
+console.log(containsVowel("hmph"));
 
 //  Kata Number 6 Tip
 
 console.log("Calulate a tip");
 
-function findTheTip(tip) {}
-// tip(57);
-// tip(32);
+function tip(originalBill) {
+  return Math.ceil(originalBill * 0.2);
+}
+console.log(tip(57));
+console.log(tip(32));
+
+// Longest Word Kata # 7
+
+console.log("Longest Word Kata");
+
+function findLongestWord(sentence) {
+  let count = 0;
+  let newSentence = sentence.split(" ");
+  let longestWord = 0;
+  let word = null;
+  while (count < newSentence.length) {
+    if (longestWord < newSentence[count].length) {
+      longestWord = newSentence[count].length;
+      word = newSentence[count];
+    }
+    count++;
+  }
+  return word;
+  console.log(word);
+  console.log(longestWord);
+  console.log(newSentence);
+}
+
+console.log(findLongestWord("have you ever seen a penguin go to tea?"));
+console.log(
+  findLongestWord(
+    "fool me once, shame on me. fool me twice, shame on heathcliff"
+  )
+);
